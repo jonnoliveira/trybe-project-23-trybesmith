@@ -5,4 +5,16 @@ export interface NewProduct {
 
 export interface Product extends NewProduct {
   id: number;
+  orderId?: null | number;
+}
+
+export interface NewUser {
+  username: string;
+  vocation: string;
+  level: number;
+  password: string;
+}
+
+export interface User extends NewUser{
+  id: number;
 }

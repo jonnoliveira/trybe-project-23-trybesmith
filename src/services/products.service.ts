@@ -1,5 +1,5 @@
 import { NewProduct } from '../interfaces';
-import * as productsModel from '../models/products.model';
+import productsModel from '../models/products.model';
 
 const insert = async (product: NewProduct) => {
   const data = await productsModel.insert(product);
@@ -12,4 +12,4 @@ const getAll = async () => {
   return { status: 200, data };
 };
 
-export { insert, getAll };
+export default { insert, getAll };

@@ -23,4 +23,4 @@ const getAll = async (): Promise<Product[]> => {
   return products as Product[];
 };
 
-export { insert, getAll };
+export default { insert, getAll };

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { NewProduct } from '../interfaces';
-import * as productsService from '../services/products.service';
+import productsService from '../services/products.service';
 
 const insert = async (req: Request, res: Response) => {
   const product = req.body as NewProduct;
@@ -16,4 +16,4 @@ const getAll = async (_req: Request, res: Response) => {
   return res.status(status).json(data);
 };
 
-export { insert, getAll };
+export default { insert, getAll };
