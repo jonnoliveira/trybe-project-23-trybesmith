@@ -18,3 +18,9 @@ export interface NewUser {
 export interface User extends NewUser{
   id: number;
 }
+
+export interface Order {
+  id: number;
+  userId: number;
+  productsIds: number[];
+}
