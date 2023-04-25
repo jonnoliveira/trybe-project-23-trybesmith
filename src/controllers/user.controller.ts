@@ -7,12 +7,12 @@ const insert = async (req: Request, res: Response) => {
   const user = req.body as NewUser;
   
   const { status, message } = await userService.insert(user);
-
   if (status) return res.status(status).json({ message });
   
-  const token = generateToken(message.id, message.username);
-
-  return res.status(201).json({ token });
+  if (typeof message !== 'string') {
+    const token = generateToken(message.id, message.username);
+    return res.status(201).json({ token });
+  }
 };
 
 export default { insert };
