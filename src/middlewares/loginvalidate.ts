@@ -1,4 +1,4 @@
-import loginSchema from '../Joi/schemas';
+import { loginSchema } from '../Joi/schemas';
 
 const loginvalidate = (username: string, password: string) => {
   const { error } = loginSchema.validate({ username, password });

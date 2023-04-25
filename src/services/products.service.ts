@@ -1,15 +1,21 @@
 import { NewProduct } from '../interfaces';
+import newProductValidate from '../middlewares/newProductValidate';
 import productsModel from '../models/products.model';
 
 const insert = async (product: NewProduct) => {
-  const data = await productsModel.insert(product);
+  const { name, amount } = product;
   
-  return { status: 201, data };
+  const validate = newProductValidate(name, amount);
+  if (validate.status) return validate;
+
+  const message = await productsModel.insert(product);
+  
+  return { status: null, message };
 };
 
 const getAll = async () => {
-  const data = await productsModel.getAll();
-  return { status: 200, data };
+  const message = await productsModel.getAll();
+  return { status: 200, message };
 };
 
 export default { insert, getAll };
