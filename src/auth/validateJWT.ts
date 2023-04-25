@@ -13,8 +13,7 @@ const generateToken = (id: number, username: string) => {
 };
 
 const validateToken = (token: string) => {
-  if (!token) return { message: 'Token not found' };
-  const isValid = jwt.verify(token, secretkey);
+  const isValid = jwt.decode(token);
   return isValid;
 };
 

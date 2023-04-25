@@ -20,7 +20,7 @@ export interface User extends NewUser{
 }
 
 export interface Order {
-  id: number;
+  id?: number;
   userId: number;
   productsIds: number[];
 }
@@ -28,4 +28,15 @@ export interface Order {
 export interface NewLogin {
   username: string;
   password: string;
+}
+
+export interface Token {
+  authorization: string;
+}
+
+export interface ValidToken {
+  id: number;
+  username: string;
+  iat: number;
+  exp: number;
 }

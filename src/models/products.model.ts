@@ -23,4 +23,11 @@ const getAll = async (): Promise<Product[]> => {
   return products as Product[];
 };
 
-export default { insert, getAll };
+const update = async (pIds: number, insertId: number) => {
+  const query = 'UPDATE Trybesmith.products SET order_id = ? WHERE id = ?';
+  const values = [insertId, pIds];
+
+  await connection.execute(query, values);
+};
+
+export default { insert, getAll, update };

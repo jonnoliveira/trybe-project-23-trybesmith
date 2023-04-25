@@ -1,3 +1,4 @@
+import { OkPacket, RowDataPacket } from 'mysql2';
 import connection from './connection';
 import { Order } from '../interfaces';
 
@@ -16,9 +17,18 @@ const getAll = async (): Promise<Order[]> => {
   GROUP BY
     o.id`;
 
-  const [orders] = await connection.execute(query);
+  const [orders] = await connection.execute<RowDataPacket[]>(query);
 
   return orders as Order[];
 };
 
-export default { getAll };
+const insert = async (productsIds: number[], id: number): Promise<number> => {
+  const query = 'INSERT INTO Trybesmith.orders (user_id) VALUES (?)';
+
+  const [result] = await connection.execute<OkPacket>(query, [id]);
+  const { insertId } = result;
+
+  return insertId;
+};
+
+export default { getAll, insert };

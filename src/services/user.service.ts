@@ -1,8 +1,9 @@
-import { NewUser } from '../interfaces';
+import { NewUser, User } from '../interfaces';
 import newUserValidate from '../middlewares/newUserValidate';
 import userModel from '../models/user.model';
 
-const insert = async (user: NewUser) => {
+const insert = async (user: NewUser):
+Promise<{ status: number | null, message: string | User }> => {
   const { username, vocation, level, password } = user;
 
   if (level === 0) return { status: 422, message: '"level" must be greater than or equal to 1' };

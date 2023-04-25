@@ -68,4 +68,10 @@ const newUserSchema = Joi.object({
   password: passSchema,
 });
 
-export { newProductSchema, loginSchema, newUserSchema };
+const productsIdsSchema = Joi.array().items(Joi.number()).required().label('productsIds')
+  .messages({
+    'any.required': labelRequired,
+    'array.base': '{{#label}} must be an array',
+  });
+
+export { newProductSchema, loginSchema, newUserSchema, productsIdsSchema };
