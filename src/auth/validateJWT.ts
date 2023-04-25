@@ -7,8 +7,8 @@ const configJWT: SignOptions = {
   algorithm: 'HS256',
 };
 
-const generateToken = (payload: string) => {
-  const token = jwt.sign({ payload }, secretkey, configJWT);
+const generateToken = (id: number, username: string) => {
+  const token = jwt.sign({ id, username }, secretkey, configJWT);
   return token;
 };
 
