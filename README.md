@@ -66,7 +66,7 @@ Veja mais abaixo!
 
 ## 100% :heavy_check_mark:
 
-![Project-trybesmith-grade]()
+![Project-trybesmith-grade](https://github.com/jonnoliveira/trybe-project-23-trybesmith/blob/main/images/trybesmith-grade.png)
 
 </details> 
  
